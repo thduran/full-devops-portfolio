@@ -1,7 +1,5 @@
 # Full DevOps Portfolio - Thiago Duran
 
-![DevOps Banner](https://i.imgur.com/YOUR_IMAGE_URL.png) ## Olá! 👋
-
 Sou Thiago e esse repo serve como um diário da minha jornada pra DevOps/Infra. Sou formado técnico em Informática e Analista de Sistemas, com experiências em suporte e SQL, e agora estou focado em me tornar um profissional especialista em cultura DevOps, automação e nuvem.
 
 Aqui documento a parte prática dos estudos, seguindo o conteúdo programático do curso **DevOps Pro 2.0** da Full Cycle. Meu objetivo é dominar as ferramentas essenciais do mercado e agregar valor em uma nova oportunidade profissional em breve.

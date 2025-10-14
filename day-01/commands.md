@@ -1,4 +1,4 @@
-For english, click [here](#commands)
+For english, click [here](#english)
 
 Comandos:
 
@@ -79,7 +79,7 @@ Configuração do `kubectl` com cluster -> `~/.kube/config`. Contém credenciais
 
 ---
 
-[eng] Commands:
+English:
 
 ```bash
 # simple cluster creation (1 control-plane, 1 agent)
