@@ -1,4 +1,4 @@
-For english, click [here](#english)
+[English below]
 
 Comandos:
 
