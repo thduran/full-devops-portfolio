@@ -3,29 +3,29 @@
 Comandos:
 
 ```bash
-# simple cluster creation (1 control-plane, 1 agent)
+# cria cluster simples (1 control-plane, 1 agente)
 k3d cluster create my-cluster
 
-# creates cluster without standard LB
+# cria cluster sem LB padrão
 k3d cluster create mY-cluster --no-lb
 
-# lists existing clusters
+# lista clusters existentes
 k3d cluster list
 
-# deletes specific cluster
+# deleta cluster específico 
 k3d cluster delete my-cluster
 
-# creates cluster with multiple nodes (3 control-planes, 3 agents)
+# cria cluster com vários nodes (3 control-planes, 3 agentes)
 k3d cluster create my-cluster --servers 3 --agents 3
 
-# creates cluster and exposes host port to k8s service
-# Ex: maps port 8080 of host to port 30000 of LB
+# cria cluster expõe porta do host para serviços do k8s
+# Ex: mapeia porta 8080 do host para porta 30000 do LB
 k3d cluster create my-cluster -p "8080:30000@loadbalancer"
 
-# universal command to apply configuration manifest
+# comando universal para aplicar manifesto
 kubectl apply -f file.yaml
 
-# lists all resources of standard namespace
+# lista tudo do namespace default
 kubectl get all
 ```
 
@@ -104,7 +104,7 @@ k3d cluster create my-cluster -p "8080:30000@loadbalancer"
 # universal command to apply configuration manifest
 kubectl apply -f file.yaml
 
-# lists all resources of standard namespace
+# lists all resources of default namespace
 kubectl get all
 ```
 
