@@ -1,0 +1,16 @@
+# defines name of the worflow
+name: simple-workflow
+
+# defines the trigger
+on: push
+
+jobs:
+  # defines a single job
+  hello-world-job:
+    # defines the runner
+    runs-on: ubuntu-latest
+
+    # defines the job steps
+    steps:
+      - name: Display Hello World
+        run: echo "Hello World!"
