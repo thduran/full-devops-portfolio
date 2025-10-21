@@ -35,3 +35,9 @@ jobs:
    steps:
      - name: Node JS version check
        run: node --version
+     - name: Newest version installation
+     - uses: actions/setup-node@v6 # instead of running commands, we can call an action
+       with:
+         node-version: '22.21.0' # declaring node version we want. See action documentation
+     - name: Node JS version check after update
+       run: node --version
