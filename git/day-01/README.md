@@ -146,25 +146,7 @@
 
 ## **4. GitHub Actions: exemplo simples**
 
-* **Exemplo:** O arquivo da raiz `.github/workflows/first-workflow.yaml` é um workflow simples que imprime "Hello World" toda vez que der `push` na `main`.
-```yaml
-# Exemplo
-name: simple-workflow
-
-# defines the trigger
-on: push
-
-jobs:
-  # defines a single job
-  hello-world-job:
-    # defines the runner
-    runs-on: ubuntu-latest
-
-    # defines the job steps
-    steps:
-      - name: Display Hello World
-        run: echo "Hello World!"
-```
+* **Exemplo:** O arquivo da raiz `.github/workflows/first-workflow.yaml` é um workflow simples que imprime alguns comandos linux e python toda vez que der `push` na `main`.
 
 ---
 
