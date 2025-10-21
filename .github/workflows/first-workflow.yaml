@@ -29,3 +29,9 @@ jobs:
           var = "Hi there"
           print(var)
         shell: python # allow to run python scripts
+  
+  node-installation-job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Node JS version check
+       run: node --version
