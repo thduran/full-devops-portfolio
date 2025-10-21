@@ -23,3 +23,9 @@ jobs:
         run: | # allows several commands in a single action
           echo "You created a worflow"
           echo "Congrats!"
+
+      - name: Script Python
+        run: |
+          var = "Hi there"
+          print(var)
+        shell: python # allow to run python scripts
