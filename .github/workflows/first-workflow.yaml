@@ -56,9 +56,11 @@ jobs:
         go-version: '1.22.x'
     
     - name: Install Go dependencies
+      working-directory: ./git/day-02
       run: go mod download # downloads all dependencies listed in ./git/day-02/go.mod
 
     - name: Run Tests
+      working-directory: ./git/day-02
       run: go test ./... -v # ./git/day-02/main_test.go
 
     - name: Logging in to Docker
