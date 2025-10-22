@@ -56,11 +56,11 @@ jobs:
         go-version: '1.22.x'
     
     - name: Install Go dependencies
-      working-directory: ./git/day-02
+      working-directory: ./git/day-03
       run: go mod download # downloads all dependencies listed in ./git/day-02/go.mod
 
     - name: Run tests
-      working-directory: ./git/day-02
+      working-directory: ./git/day-03
       run: go test ./... -v # ./git/day-02/main_test.go
 
     - name: Logging in to Docker
@@ -72,8 +72,8 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v6
       with:
-        context: ./git/day-02 # the directory you're working with
-        file: ./git/day-02/Dockerfile # Dockerfile path
+        context: ./git/day-03 # the directory you're working with
+        file: ./git/day-03/Dockerfile # Dockerfile path
         push: true # to automatically push image to Hub. Default is false
         tags: |
           thiagoduran/github-actions-test:v${{ github.run_number }}
