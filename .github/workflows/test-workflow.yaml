@@ -1,0 +1,91 @@
+# defines name of the worflow
+name: test-workflow
+
+# defines the trigger
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch: # allows to run workflow manually
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Obtaining code
+      uses: actions/checkout@v5 # when the workflow file is in the same directory of the code, the definition of code path isn't needed
+    
+    - name: Setup Go environment
+      uses: actions/setup-go@v5 # ensures correct go version
+      with:
+        go-version: '1.22.x'
+    
+    - name: Install Go dependencies
+      working-directory: ./git/day-03
+      run: go mod download # downloads all dependencies listed in ./git/day-02/go.mod
+
+    - name: Run tests
+      working-directory: ./git/day-03
+      run: go test ./... -v # ./git/day-02/main_test.go
+
+    - name: Logging in to Docker
+      uses: docker/login-action@v3.1.0
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: ./git/day-03 # the directory you're working with
+        file: ./git/day-03/Dockerfile # Dockerfile path
+        push: true # to automatically push image to Hub. Default is false
+        tags: |
+          thiagoduran/test-actions:v${{ github.run_number }}
+          thiagoduran/test-actions:latest
+        # run_number ensures version number incrementation
+        # ensures push of tag latest (best practice)
+  
+  CD:
+    name: Deploy to k3d cluster
+    runs-on: ubuntu-latest
+    needs: [CI]
+
+    steps:
+    - name: Obtaining code
+      uses: actions/checkout@v5
+    
+    # 1. Configurar o kubectl no runner do GitHub Actions
+    - name: Setup Kustomize/Kubectl
+      uses: w9jds/kustomize-action@v5
+      with:
+        version: '4.5.7' # Ação que também instala o kubectl
+    
+    - name: Configure Kubeconfig
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.K8SCONFIGTEST }}" > ~/.kube/config
+        chmod 600 ~/.kube/config
+    
+    - name: Check Kubectl Connectivity (Optional)
+      run: kubectl cluster-info # Para verificar se a conexão está OK
+
+    # 3. Usar o kubectl apply para aplicar os manifestos da sua aplicação
+    - name: Apply Kubernetes Manifests
+      run: |
+        kubectl apply -f ./git/day-03/k8s/
+    # Assumindo que seus manifestos estão em ./git/day-03/k8s/
+    
+    # 4. Usar kubectl set image para garantir que a nova imagem buildada seja usada
+    # O job CD precisa saber qual tag de imagem foi gerada no job CI
+    - name: Update Deployment Image
+      env:
+        # A tag exata da imagem buildada no job CI
+        IMAGE_TAG: thiagoduran/test-actions:v${{ github.run_number }} 
+      run: |
+        kubectl set image deployment/web web=${{ env.IMAGE_TAG }}
+    
+    - name: Wait for Deployment Rollout
+      run: |
+        kubectl rollout status deployment/web --timeout=5m
