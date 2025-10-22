@@ -11,7 +11,7 @@ on:
 jobs:
   # defines the job name
   hello-world-job:
-    # defines the runner
+    # defines the runner. It's needed after every job name
     runs-on: ubuntu-latest
 
     # defines the job steps
@@ -81,3 +81,25 @@ jobs:
         # run_number ensures version number incrementation
         # ensures push of tag latest (best practice)
         
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI] # ensures that CD job will be run after CI job
+    steps:
+
+    - name: Obtaining code
+      uses: actions/checkout@v5
+    
+    - name: Configuring k8s context # action to set kubeconfig
+      uses: azure/k8s-set-context@v4
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.k8s_config }} # the content of ~/.kube/config was set as a secret
+        
+    - name: Manifest execution
+      uses: Azure/k8s-deploy@v5 # action to deploy app with k8s
+      with:
+        manifests: |
+          ./k8s/deployment.yaml
+        images: |
+          thiagoduran/github-actions-test:v${{ github.run_number }}  
+        # must match image set in k8s yaml

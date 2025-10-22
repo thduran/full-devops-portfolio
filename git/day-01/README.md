@@ -146,7 +146,7 @@
 
 ## **4. GitHub Actions: exemplo**
 
-* **Exemplo:** O arquivo da raiz `.github/workflows/first-workflow.yaml` é um workflow que vai sendo incrementado ao longo dos estudos, mostrando o que tenho aprendido.
+* **Exemplo:** O arquivo da raiz `.github/workflows/first-workflow.yaml` é um workflow que vai sendo incrementado ao longo dos estudos, mostrando o que tenho aprendido. Linhas 1 a 44 se referem ao day-01.
 
 ---
 
@@ -296,23 +296,6 @@
 
 ---
 
-## **4. GitHub Actions: simple example**
+## **4. GitHub Actions: example**
 
-* **Example:** The `.github/workflows/first-workflow.yaml` file is a simple workflow that prints "Hello World" every time you `push` to `main`.
-```yaml
-# Example
-name: simple-workflow
-
-# defines the trigger
-on: push
-
-jobs:
-  # defines a single job
-  hello-world-job:
-    # defines the runner
-    runs-on: ubuntu-latest
-
-    # defines the job steps
-    steps:
-      - name: Display Hello World
-        run: echo "Hello World!"
+* **Exemplo:** The root file `.github/workflows/first-workflow.yaml` is a workflow that is being incremented throughout my studies, showing what I've been learning. Lines 1 to 44 refer to day-01.
