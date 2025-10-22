@@ -63,5 +63,8 @@ jobs:
         file: ./git/day-02/Dockerfile # Dockerfile path
         push: true # to automatically push image to Hub. Default is false
         tags: |
-          thiagoduran/github-actions-test:v${{ github.run_number }} # ensures version number incrementation
-          thiagoduran/github-actions-test:latest # ensures push of tag latest (best practice)
+          thiagoduran/github-actions-test:v${{ github.run_number }}
+          thiagoduran/github-actions-test:latest
+        # run_number ensures version number incrementation
+        # ensures push of tag latest (best practice)
+        
