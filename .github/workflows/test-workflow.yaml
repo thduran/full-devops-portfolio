@@ -48,7 +48,6 @@ jobs:
         # ensures push of tag latest (best practice)
   
   CD:
-    name: Deploy to k3d cluster
     runs-on: ubuntu-latest
     needs: [CI]
 
