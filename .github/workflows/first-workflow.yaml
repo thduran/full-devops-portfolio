@@ -96,11 +96,10 @@ jobs:
         kubeconfig: ${{ secrets.k8s_config }} # the content of ~/.kube/config was set as a secret
         
     - name: Manifest execution
-      uses: Azure/k8s-deploy@v5 # action to deploy app with k8s
+      uses: azure/k8s-deploy@v5 # action to deploy app with k8s
       with:
         manifests: |
           ./git/day-03/k8s/deployment.yaml
         images: |
           thiagoduran/github-actions-test:v${{ github.run_number }}  
         # must match image set in k8s yaml
-        arguments: --validate=false
