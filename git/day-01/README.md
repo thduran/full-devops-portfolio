@@ -144,9 +144,9 @@
 
 ---
 
-## **4. GitHub Actions: exemplo simples**
+## **4. GitHub Actions: exemplo**
 
-* **Exemplo:** O arquivo da raiz `.github/workflows/first-workflow.yaml` é um workflow simples que imprime alguns comandos linux e python toda vez que der `push` na `main`.
+* **Exemplo:** O arquivo da raiz `.github/workflows/first-workflow.yaml` é um workflow que vai sendo incrementado ao longo dos estudos, mostrando o que tenho aprendido.
 
 ---
 
