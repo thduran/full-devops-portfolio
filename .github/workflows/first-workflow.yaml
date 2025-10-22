@@ -103,3 +103,4 @@ jobs:
         images: |
           thiagoduran/github-actions-test:v${{ github.run_number }}  
         # must match image set in k8s yaml
+        arguments: --validate=false
