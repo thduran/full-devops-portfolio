@@ -13,4 +13,5 @@ c. push
 
 b e c tem uma action tambem > docker/build-push-action@v6
 
-após a execução da pipeline, localhost8080 podera ser acessado para ver o app em execucao
+após a execução da pipeline, docker container run -d -p 8080:5000 thiagoduran/github-actions-test:v15
+ podera ser executado para ver o app em execucao
