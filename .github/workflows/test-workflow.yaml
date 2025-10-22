@@ -55,6 +55,7 @@ jobs:
     - name: Obtaining code
       uses: actions/checkout@v5
     
+    # Authenticates kubectl so it can communicate with DigitalOcean.
     - name: Configure Kubeconfig
       run: |
         mkdir -p ~/.kube
@@ -62,19 +63,14 @@ jobs:
         chmod 600 ~/.kube/config
     
     - name: Check Kubectl Connectivity (Optional)
-      run: kubectl cluster-info # Para verificar se a conexão está OK
+      run: kubectl cluster-info
 
-    # 3. Usar o kubectl apply para aplicar os manifestos da sua aplicação
     - name: Apply Kubernetes Manifests
       run: |
         kubectl apply -f ./git/day-03/k8s/
-    # Assumindo que seus manifestos estão em ./git/day-03/k8s/
     
-    # 4. Usar kubectl set image para garantir que a nova imagem buildada seja usada
-    # O job CD precisa saber qual tag de imagem foi gerada no job CI
     - name: Update Deployment Image
       env:
-        # A tag exata da imagem buildada no job CI
         IMAGE_TAG: thiagoduran/test-actions:v${{ github.run_number }} 
       run: |
         kubectl set image deployment/web web=${{ env.IMAGE_TAG }}
