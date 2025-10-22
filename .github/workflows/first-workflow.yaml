@@ -50,6 +50,17 @@ jobs:
     - name: Obtaining code
       uses: actions/checkout@v5 # when the workflow file is in the same directory of the code, the definition of code path isn't needed
     
+    - name: Setup Go environment
+      uses: action/setup-go@v5 # ensures correct go version
+      with:
+        go-version: '1.22.x'
+    
+    - name: Install Go dependencies
+      run: go mod download # downloads all dependencies listed in ./git/day-02/go.mod
+
+    - name: Run Tests
+      run: go test ./... -v # ./git/day-02/main_test.go
+
     - name: Logging in to Docker
       uses: docker/login-action@v3.1.0
       with:
