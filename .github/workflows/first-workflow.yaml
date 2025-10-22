@@ -59,7 +59,7 @@ jobs:
       working-directory: ./git/day-02
       run: go mod download # downloads all dependencies listed in ./git/day-02/go.mod
 
-    - name: Run Tests
+    - name: Run tests
       working-directory: ./git/day-02
       run: go test ./... -v # ./git/day-02/main_test.go
 
