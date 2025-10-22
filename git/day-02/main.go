@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os" // Added to quit app in case of fail
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
