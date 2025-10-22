@@ -55,3 +55,11 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: ./git/day-02 # the directory you're working with
+        file: ./git/day-02/Dockerfile # Dockerfile path
+        push: true # to automatically push image to Hub. Default is false
+        tags: thiagoduran/github-actions-test
