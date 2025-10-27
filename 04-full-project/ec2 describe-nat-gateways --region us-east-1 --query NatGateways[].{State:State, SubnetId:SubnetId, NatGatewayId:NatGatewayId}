@@ -1,0 +1,91 @@
+{
+    "cluster": {
+        "name": "my-eks",
+        "arn": "arn:aws:eks:us-east-1:035386953677:cluster/my-eks",
+        "createdAt": "2025-10-27T12:52:21.852000-03:00",
+        "version": "1.29",
+        "endpoint": "https://830B188B494DB79AFA10BF744BC335AE.gr7.us-east-1.eks.amazonaws.com",
+        "roleArn": "arn:aws:iam::035386953677:role/my-eks-cluster-20251027155148052400000001",
+        "resourcesVpcConfig": {
+            "subnetIds": [
+                "subnet-08b608a902d80496e",
+                "subnet-038743feef3b919d9"
+            ],
+            "securityGroupIds": [
+                "sg-06b5cb4e922ed0d06"
+            ],
+            "clusterSecurityGroupId": "sg-0632acc1d1223bcf3",
+            "vpcId": "vpc-0798c3bdb67406a46",
+            "endpointPublicAccess": true,
+            "endpointPrivateAccess": true,
+            "publicAccessCidrs": [
+                "0.0.0.0/0"
+            ]
+        },
+        "kubernetesNetworkConfig": {
+            "serviceIpv4Cidr": "172.20.0.0/16",
+            "ipFamily": "ipv4",
+            "elasticLoadBalancing": {
+                "enabled": false
+            }
+        },
+        "logging": {
+            "clusterLogging": [
+                {
+                    "types": [
+                        "api",
+                        "audit",
+                        "authenticator"
+                    ],
+                    "enabled": true
+                },
+                {
+                    "types": [
+                        "controllerManager",
+                        "scheduler"
+                    ],
+                    "enabled": false
+                }
+            ]
+        },
+        "identity": {
+            "oidc": {
+                "issuer": "https://oidc.eks.us-east-1.amazonaws.com/id/830B188B494DB79AFA10BF744BC335AE"
+            }
+        },
+        "status": "ACTIVE",
+        "certificateAuthority": {
+            "data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJQlFrRkE2UVZpNU13RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TlRFd01qY3hOVFV6TkRKYUZ3MHpOVEV3TWpVeE5UVTROREphTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMraUttekxwNDZwYjhaamNmNzd3ZC9md1gwMEd6RXNtaFArOUxOdmZWbDRYa3ljV1RhKzZ5ZE5BajUKT0ZObncxaGpya296Sko3bW9LTWJteVQyUjlBMGNkeUFXekQxYm1Hd0FPck9obEc5NEF5dmlEQ0NuanJ0QXB1RwppQnBzdnhUWnUwTTBhbW1ucHNMWS8xTndTcUswUVJJM1FlSEJ4VkZzSGJiM0kxTHJEZnFXWlJkOG9yTHlWOXRFCk5UTEFWMStLeThBOWhxdXFvZmlTYTdrZHc4L3FqTTBOdkhBYzFYQWRvOE5HOUZXaHZ0VEozcERBeXAzY2dlYkMKTklpR3dLOU5xWDYrdDMrbE9rSGNuZk1zVkVmMDEwK1owdHpoZDFXZm02VU5ydGpXRHQvL2E1Qy9RbTlzbFRLZQpVMjN3T0xWQmlsejZ2aWgyRFRqWXVaV1VHbm5oQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJRc2UwakNzeWRYUS9YeS9ZZlNaMlAxRWlQQ1lqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQTk5QnJBTDhzbwpHaHY0V3hPdFhGSHlFM2VrSnk3MFlma3E4VlArUjhOcXJXZnFrcWxMd0JRVDUxd0dZL0hINTZTMksydGdJbjlHCi9kUnM1RWJoVk1EM1gxMEVTV250MDA5blZ2WW43ZUtJVjNTZ1lqSi8xVW9scmd0Vjd5M2VNOXJPakZNQVQvZDEKQnBPalhCbXdhdDNDU3V1REJ6WFZkdFZnRXVhRzBqV0NRM3c4SlJkN0I2UlZNNExMWUZROTB3VjkwcXloQmwwTQpRS2JjaFlzKzhWMlBvcE5tODFvY20vVVU5bjhWZWJvOHNOY1FPbE5YQTc3eldqc3lpY0xWTnU0aWdlOXMvaEJWCkFhUWdTcDZBbXpvTnE0VStzNERLNEYrME9EQytQWU93RThHcGVkU2dRZElpNGkrcTBHTnpLVGUxWHNKbEl0L0UKb3U4ZlJKVDloRUR6Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+        },
+        "platformVersion": "eks.53",
+        "tags": {
+            "terraform-aws-modules": "eks"
+        },
+        "encryptionConfig": [
+            {
+                "resources": [
+                    "secrets"
+                ],
+                "provider": {
+                    "keyArn": "arn:aws:kms:us-east-1:035386953677:key/7ea3beb0-6f43-48bf-83e8-f250f82be339"
+                }
+            }
+        ],
+        "accessConfig": {
+            "authenticationMode": "API_AND_CONFIG_MAP"
+        },
+        "upgradePolicy": {
+            "supportType": "EXTENDED"
+        },
+        "computeConfig": {
+            "enabled": false,
+            "nodePools": []
+        },
+        "storageConfig": {
+            "blockStorage": {
+                "enabled": false
+            }
+        },
+        "deletionProtection": false
+    }
+}
