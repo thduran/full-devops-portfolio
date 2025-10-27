@@ -56,12 +56,12 @@ jobs:
         go-version: '1.22.x'
     
     - name: Install Go dependencies
-      working-directory: ./git/day-03
-      run: go mod download # downloads all dependencies listed in ./git/day-02/go.mod
+      working-directory: ./03-git/day-03
+      run: go mod download # downloads all dependencies listed in ./03-git/day-02/go.mod
 
     - name: Run tests
-      working-directory: ./git/day-03
-      run: go test ./... -v # ./git/day-02/main_test.go
+      working-directory: ./03-git/day-03
+      run: go test ./... -v # ./03-git/day-02/main_test.go
 
     - name: Logging in to Docker
       uses: docker/login-action@v3.1.0
@@ -72,8 +72,8 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v6
       with:
-        context: ./git/day-03 # the directory you're working with
-        file: ./git/day-03/Dockerfile # Dockerfile path
+        context: ./03-git/day-03 # the directory you're working with
+        file: ./03-git/day-03/Dockerfile # Dockerfile path
         push: true # to automatically push image to Hub. Default is false
         tags: |
           thiagoduran/github-actions-test:v${{ github.run_number }}
@@ -115,7 +115,7 @@ jobs:
       uses: azure/k8s-deploy@v5 # action to deploy app with k8s
       with:
         manifests: |
-          ./git/day-03/k8s/deployment.yaml
+          ./03-git/day-03/k8s/deployment.yaml
         images: |
           thiagoduran/github-actions-test:v${{ github.run_number }}  
         # must match image set in k8s yaml
