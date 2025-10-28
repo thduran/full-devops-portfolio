@@ -7,6 +7,7 @@ crash.log
 
 # Diretório de módulos e plugins local
 .terraform/
+.terraform.lock.hcl
 
 # Arquivos de variáveis locais. 
 # NUNCA envie seus valores/segredos para o Git!
