@@ -11,7 +11,6 @@ crash.log
 
 # Arquivos de variáveis locais. 
 # NUNCA envie seus valores/segredos para o Git!
-*.tfvars
 *.tfvars.json
 
 # Ignore arquivos de sistema

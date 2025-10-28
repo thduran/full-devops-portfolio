@@ -13,6 +13,7 @@ O foco não é apenas o resultado final, mas a jornada de construção e depura�
 * [Tecnologias Utilizadas](#30-tecnologias-utilizadas)
 * [Decisões Chave de Arquitetura](#40-decisões-chave-de-arquitetura)
 * [Como Executar Este Projeto](#50-como-executar-este-projeto)
+* [Imagens do Projeto Rodando](#60-imagens-do-projeto-rodando)
 * [A Jornada: Relatório Completo de Aprendizado e Debug](#a-jornada-relatório-completo-de-aprendizado-e-debug)
 * [Referência Rápida de Comandos](#referência-rápida-de-comandos)
 
@@ -182,16 +183,27 @@ Solução de Problemas (Se NÃO carregar)
 
 Para a explicação detalhada de como este problema foi diagnosticado, veja a seção Parte 3 abaixo.
 
-### 6.0 Limpeza (!)
+## 6.0 Imagens do projeto rodando
+
+Construção com sucesso do Terraform e outputs com comando para configurar o kubeconfig
+![Construção com sucesso do Terraform e outputs com comando para configurar o kubeconfig](./images/1.png)
+
+Serviços do Kubernetes no ar apenas após o push que acionou o pipeline de deploy
+![Serviços do Kubernetes no ar apenas após o push que acionou o pipeline de deploy](./images/2.png)
+
+Acessando IP do LoadBalancer no navegador
+![Acessando IP do LoadBalancer no navegador](./images/3.png)
+
+### 7.0 Limpeza (!)
 AVISO: O EKS e o Load Balancer são cobrados por hora.
 
-#### 6.1 DESTRUA O LOAD BALANCER (Dependência)
+#### 7.1 DESTRUA O LOAD BALANCER (Dependência)
 * AVISO: Antes de rodar terraform destroy, você DEVE excluir o Load Balancer criado pelo Kubernetes.
 Se você não fizer isso, o Terraform falhará com um erro de DependencyViolation.
 
 Para a explicação detalhada deste erro, veja Parte 4 abaixo.
 
-#### 6.2 DESTRUA A INFRA (Terraform)
+#### 7.2 DESTRUA A INFRA (Terraform)
 
 ```bash
 terraform destroy -auto-approve
@@ -311,6 +323,7 @@ The focus is not just on the final result, but on the build and debugging journe
 * [Tecnologies Used](#30-technologies-used)
 * [Key Decisions on Architecture](#40-key-decisions-on-architecture)
 * [How to run it](#50-how-to-run-it)
+* [Images of the Project running](#60-images-of-the-project-running)
 * [The journey: Complete report of learning and Debugging](#the-journey-complete-report-of-learning-and-debugging)
 * [Quick Command Reference](#quick-command-reference)
 
@@ -479,10 +492,21 @@ Troubleshooting (if it doesn't load)
 
 For a detailed explanation of how this problem was diagnosed (including how to find your NodePort), see Part 3 in the "Journey" section below.
 
-### 6.0 Cleanup (!)
+## 6.0 Images of the Project running
+
+Succeded Terraform building and outputs with command to set kubeconfig
+![Succeded Terraform building and outputs with command to set kubeconfig](./images/1.png)
+
+Kubernetes services up only after push that triggered the deploy pipeline
+![Kubernetes services up only after push that triggered the deploy pipeline](./images/2.png)
+
+Acessing LoadBalancer IP
+![Acessing LoadBalancer IP](./images/3.png)
+
+### 7.0 Cleanup (!)
 Warning: EKS and the Load Balancer are charged by the hour.
 
-#### 6.1 DESTROY THE LOAD BALANCER (Dependency)
+#### 7.1 DESTROY THE LOAD BALANCER (Dependency)
 * WARNING: before running terraform destroy, you MUST delete the Load Balancer created by Kubernetes.
 If you don't do this, Terraform will fail with a DependencyViolation error.
 
