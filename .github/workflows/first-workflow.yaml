@@ -95,21 +95,20 @@ jobs:
     #     method: kubeconfig
     #     kubeconfig: ${{ secrets.k8s_config }} # the content of ~/.kube/config was set as a secret
 
-    # --- MUDANÇA 1: Autenticar na AWS ---
-    # Substituímos o 'azure/k8s-set-context' por credenciais reais da AWS.
+    # --- if you're not in /04-terraform+aws, comment thes 2 following jobs and uncomment the job above ---
+    # 'azure/k8s-set-context' replaced by real credentials
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1 # IMPORTANTE: A mesma região do seu cluster EKS
+        aws-region: us-east-1 # must be the same regions of the EKS cluster
 
-    # --- MUDANÇA 2: Configurar o Kubectl ---
-    # Em vez de usar um secret, usamos a AWS CLI para configurar o kubectl
-    # O nome 'meu-cluster-minimo' deve ser o mesmo do seu Terraform.
+    # Instea of using a secret, AWS CLI is used to configure kubectl
+    # cluster name must be the same in Terraform.
     - name: Set up Kubectl for EKS
       run: |
-        aws eks update-kubeconfig --name meu-cluster-minimo --region us-east-1
+        aws eks update-kubeconfig --name my-cluster --region us-east-1
         
     - name: Manifest execution
       uses: azure/k8s-deploy@v5 # action to deploy app with k8s
