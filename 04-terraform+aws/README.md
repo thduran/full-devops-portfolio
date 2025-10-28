@@ -8,8 +8,8 @@ O foco não é apenas o resultado final, mas a jornada de construção e depura�
 
 ## Índice
 
-* [Visão Geral do Projeto](#visão-geral-do-projeto)
-* [Arquitetura](#arquitetura)
+* [Visão Geral do Projeto](#1.0-visão-geral-do-projeto)
+* [Arquitetura](#2.0-arquitetura)
 * [Tecnologias Utilizadas](#tecnologias-utilizadas)
 * [Decisões Chave de Arquitetura](#decisões-chave-de-arquitetura)
 * [Como Executar Este Projeto](#como-executar-este-projeto)
